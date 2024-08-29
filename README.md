@@ -17,7 +17,7 @@ c("tidyverse",
 )
 ```
 
-You will also require the `rethinking` package, which you can install with the following code (see [here](https://github.com/rmcelreath/rethinking) for more details):
+You will also need the `rethinking` package, which you can install with the following code (see [here](https://github.com/rmcelreath/rethinking) for more details):
   
 ```
 # from https://github.com/rmcelreath/rethinking
