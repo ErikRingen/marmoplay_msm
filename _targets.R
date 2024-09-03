@@ -1,8 +1,8 @@
 library(targets)
 source("R/functions.R")
 
-if (!dir.exists("fig")) dir.create(dir_name)
-if (!dir.exists("stanfits")) dir.create(dir_name)
+if (!dir.exists("fig")) dir.create("fig")
+if (!dir.exists("stanfits")) dir.create("stanfits")
 
 options(tidyverse.quiet = T)
 tar_option_set(packages = c("tidyverse", "lubridate", "posterior", "rethinking", "cmdstanr", "tidygraph", "ggraph", "igraph", "patchwork", "Matrix", "wesanderson", "bayesplot", "posterior"))
