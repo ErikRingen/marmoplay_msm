@@ -8,7 +8,7 @@ options(tidyverse.quiet = T)
 tar_option_set(packages = c("tidyverse", "lubridate", "posterior", "rethinking", "cmdstanr", "tidygraph", "ggraph", "igraph", "patchwork", "Matrix", "wesanderson", "bayesplot", "posterior"))
 
 list(
-  tar_target(d_raw, "raw_data/compiled_results_play_poly.csv", format = "file"),
+  tar_target(d_raw, "raw_data/rawplay.csv", format = "file"),
   tar_target(d, clean_data(d_raw)),
   
   ### Stage 1 Analyses: multi-state model of behavior ###
