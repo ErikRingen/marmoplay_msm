@@ -19,26 +19,15 @@ extract_samples <- function(fit_obj) {
 }
 
 clean_data <- function(file){
-  
-  ## NEED TO CHANGE TO MILISECONDS NOT HMS
-  d <- read_csv(file) %>% 
-    select(-c("...16")) %>% 
+
+    d <- read_csv(file) %>% 
     mutate(
       start_time = as.numeric(substr(start_time, 1, 2)) * 3600 + as.numeric(substr(start_time, 4, 5)) * 60 + as.numeric(substr(start_time, 7, 8)) + as.numeric(substr(start_time, 10, 11)) / 24,
       end_time = as.numeric(substr(end_time, 1, 2)) * 3600 + as.numeric(substr(end_time, 4, 5)) * 60 + as.numeric(substr(end_time, 7, 8)) + as.numeric(substr(end_time, 10, 11)) / 24,
       duration = as.numeric(substr(duration, 1, 2)) * 3600 + as.numeric(substr(duration, 4, 5)) * 60 + as.numeric(substr(duration, 7, 8)) + as.numeric(substr(duration, 10, 11)) / 24,
       session_name = paste0(group, ": ", "session ", session)
     ) %>% 
-    filter(behavior != "groom") %>%  # check with Jessie, but shouldn't matter for the durations
-    filter(play_type == "dyad") # only dyadic interactions
-  
-  # Need to add "buffer" 
-  
+    filter(behavior != "groom") # drop grooming, will just result in the gaps being "rest"
   
   return(d)
 }
-
-# Define consistent colors for behavioral states
-# invite_col <- "#9cbb62"
-# play_col <- "#cc00c7"
-
